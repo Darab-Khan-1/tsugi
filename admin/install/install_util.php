@@ -49,6 +49,7 @@ function getClusterIPs($rows=false) {
         if ( $row['ipaddr'] == $serverIP ) continue;
         $retval[] = $row['ipaddr'];
     }
+
     return $retval;
 }
 
@@ -110,7 +111,6 @@ function updateToolStatus($tool_path, $detail) {
     }
 
     $tool_id = $row['tool_id'];
-
     $serverIP = Net::serverIP();
     $sql = "INSERT INTO {$CFG->dbprefix}lms_tools_status
             ( tool_id, ipaddr, status_note, commit_log, 

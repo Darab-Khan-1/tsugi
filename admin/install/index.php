@@ -39,7 +39,6 @@ if ( ! isset($CFG->install_folder) ) {
 
 // Check to see if we are in a cluster
 $other_nodes = count(getClusterIPs());
-
 ?>
 <a href="<?= $CFG->wwwroot ?>/admin" style="float: right;" class="btn btn-default">Admin</a>
 
@@ -143,8 +142,9 @@ $(document).ready(function(){
 <?php if(isset($CFG->lessons)) { ?>
         tsugiHandlebarsToDiv('required_ul', 'required', repos);
 <?php } ?>
+
         tsugiHandlebarsToDiv('available_ul', 'available', repos);
-    }).fail( function() { alert('getJSON fail'); } );
+    }).fail( function(repos)   {console.log(repos); } );
 
 <?php if( $other_nodes > 0 ) { ?>
     $.getJSON('<?= addSession('cluster_json.php') ?>', function(data) {
