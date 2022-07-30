@@ -144,7 +144,6 @@ $(document).ready(function(){
 <?php } ?>
         tsugiHandlebarsToDiv('available_ul', 'available', repos);
     }).fail( function(repos)   {console.log(repos); } );
-
 <?php if( $other_nodes > 0 ) { ?>
     $.getJSON('<?= addSession('cluster_json.php') ?>', function(data) {
         tsugiHandlebarsToDiv('cluster_ul', 'cluster', data);
