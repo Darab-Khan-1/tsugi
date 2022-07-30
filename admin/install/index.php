@@ -141,7 +141,8 @@ $(document).ready(function(){
         tsugiHandlebarsToDiv('installed_ul', 'installed', repos);
 <?php if(isset($CFG->lessons)) { ?>
         tsugiHandlebarsToDiv('required_ul', 'required', repos);
-<?php } ?>
+<?php } ?> 
+
         tsugiHandlebarsToDiv('available_ul', 'available', repos);
     }).fail( function(repos)   {console.log(repos); } );
 <?php if( $other_nodes > 0 ) { ?>
